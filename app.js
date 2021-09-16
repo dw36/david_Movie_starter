@@ -32,3 +32,12 @@ function addMovie() {
     // Step 6: Call the clearInput function to clear the input field
     clearInput();
 }
+
+$(document).ready(function(){
+  $("#filter").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#movie-list li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
